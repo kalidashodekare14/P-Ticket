@@ -63,10 +63,23 @@ for(const btn of allBtn){
 }
 
 
-// const applyBtn = document.getElementById('apply-btn');
-// applyBtn.addEventListener('click', function(){
-//     if(totalPrice === 1650)
-// })
+const applyBtn = document.getElementById('apply-btn');
+applyBtn.addEventListener('click', function(){
+   
+    const couponElement = document.getElementById('coupon-code').value;
+    const couponCode = couponElement.split(" ").join('').toUpperCase();
+    console.log(couponCode);
+    if(couponCode === 'COUPLE20'){
+        const discountTotal = document.getElementById('grand-price');
+        const discountPrice = totalPrice * 0.2;
+        const grandUpdate = discountPrice - grandPrice;
+        discountTotal.innerText = discountPrice;
+    }
+    else{
+        applyBtn.setAttribute('disabled', true);
+    }
+    
+})
 
 
 
