@@ -8,24 +8,49 @@ for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
         // console.log('clicked')
-        
+        const applyBtn = document.getElementById('apply-btn');
+        const seatName = btn.innerText;
+        const seatPrice = 550;
+        // console.log(seatPrice)
+
+        if(count === 4){
+            // console.log('kaj hoice');
+            applyBtn.removeAttribute('disabled');
+            
+        }
+        else if(count >= 5){
+            allBtn.setAttribute('disabled', false);
+
+        }
+        else{
+            console.log('ar beshi hocce');
+            applyBtn.setAttribute('disabled', true);
+        }
+
+        // Button Background Color
        btn.classList.add('bg-[#1DD100]');
        setElementById('seat-select', count)
         // seat booking
         const seatBooking = getElementById('seat-booking');
         const booking = seatBooking - 1;
         setElementById('seat-booking', booking)
-
-
-        const seatName = btn.innerText;
-        const seatPrice = 550;
-        // console.log(seatPrice)
         
         // Seat Selected
         const seatNameValue = document.getElementById('seat-name');
+        const div = document.createElement('div');
         const p = document.createElement('p');
         p.innerText = seatName ;
-        seatNameValue.appendChild(p);
+        const p2 = document.createElement('p');
+        p2.innerText = "Economoy";
+        const p3 = document.createElement('p');
+        p3.innerText = '550';
+
+        seatNameValue.appendChild(div);
+        div.classList.add('flex');
+        div.classList.add('justify-between');
+        div.appendChild(p);
+        div.appendChild(p2);
+        div.appendChild(p3);
 
      // Calculate totalPrice
         totalPrice += seatPrice;
@@ -36,6 +61,14 @@ for(const btn of allBtn){
         document.getElementById('grand-price').innerText = grandPrice;
    })
 }
+
+
+// const applyBtn = document.getElementById('apply-btn');
+// applyBtn.addEventListener('click', function(){
+//     if(totalPrice === 1650)
+// })
+
+
 
 function setElementById(id, value){
     document.getElementById(id).innerText = value;
