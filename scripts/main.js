@@ -8,6 +8,12 @@ for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
         // console.log('clicked')
+
+        const inputNumber = document.getElementById('input-number');
+        const inputs = parseInt(inputNumber.value);
+        // console.log(typeof inputs);
+        
+
         const submitBtn = document.getElementById('submit-btn');
         const applyBtn = document.getElementById('apply-btn');
         const seatName = btn.innerText;
