@@ -8,6 +8,7 @@ for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
         // console.log('clicked')
+        const submitBtn = document.getElementById('submit-btn');
         const applyBtn = document.getElementById('apply-btn');
         const seatName = btn.innerText;
         const seatPrice = 550;
@@ -15,8 +16,8 @@ for(const btn of allBtn){
 
         if(count === 4){
             // console.log('kaj hoice');
-            applyBtn.removeAttribute('disabled');
-            
+            applyBtn.removeAttribute('disabled');  
+            submitBtn.removeAttribute('disabled');  
         }
         else if(count >= 5){
             allBtn.setAttribute('disabled', false);
@@ -68,16 +69,21 @@ applyBtn.addEventListener('click', function(){
    
     const couponElement = document.getElementById('coupon-code').value;
     const couponCode = couponElement.split(" ").join('').toUpperCase();
-    console.log(couponCode);
+    // console.log(couponCode);
     if(couponCode === 'COUPLE20'){
         const discountTotal = document.getElementById('grand-price');
         const discountPrice = totalPrice * 0.2;
-        const grandUpdate = discountPrice - grandPrice;
         discountTotal.innerText = discountPrice;
+    }
+    else if(couponCode === 'NEW15'){
+        const discountTotals = document.getElementById('grand-price');
+        const discountPrices = totalPrice * 15 / 100;
+        discountTotals.innerText = discountPrices;
     }
     else{
         applyBtn.setAttribute('disabled', true);
     }
+    
     
 })
 
