@@ -4,11 +4,9 @@ const allBtn = document.querySelectorAll(".seat-btn");
 let totalPrice = 0;
 let grandPrice = 0
 let count = 0;
-clickCount = 0
 for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
-        clickCount++
 
         const inputNumber = document.getElementById('input-number');
         const inputs = parseInt(inputNumber.value);
@@ -71,6 +69,7 @@ for(const btn of allBtn){
 }
 
 
+
 const applyBtn = document.getElementById('apply-btn');
 applyBtn.addEventListener('click', function(){
    
@@ -103,7 +102,7 @@ applyBtn.addEventListener('click', function(){
     }
     else{
         // applyBtn.setAttribute('disabled', true);
-        alert('lkjklfdf')
+        alert('Please Select Coupon Code')
     }
     
     
