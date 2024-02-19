@@ -4,27 +4,28 @@ const allBtn = document.querySelectorAll(".seat-btn");
 let totalPrice = 0;
 let grandPrice = 0
 let count = 0;
+clickCount = 0
 for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
-        // console.log('clicked')
+        clickCount++
 
         const inputNumber = document.getElementById('input-number');
         const inputs = parseInt(inputNumber.value);
-        // console.log(typeof inputs);
         
 
         const submitBtn = document.getElementById('submit-btn');
         const applyBtn = document.getElementById('apply-btn');
         const seatName = btn.innerText;
         const seatPrice = 550;
-        // console.log(seatPrice)
+
 
         if(count === 4){
-            // console.log('kaj hoice');
-            applyBtn.removeAttribute('disabled');  
+
+            applyBtn.removeAttribute('disabled'); 
             submitBtn.removeAttribute('disabled');  
         }
+        
         else if(count >= 5){
             allBtn.setAttribute('disabled', false);
 
@@ -73,21 +74,36 @@ for(const btn of allBtn){
 const applyBtn = document.getElementById('apply-btn');
 applyBtn.addEventListener('click', function(){
    
+    const discountPrice = document.getElementById('discount-price');
     const couponElement = document.getElementById('coupon-code').value;
     const couponCode = couponElement.split(" ").join('').toUpperCase();
     // console.log(couponCode);
     if(couponCode === 'COUPLE20'){
+        const discountPrice = document.getElementById('discount-price');
+        const discountPrices = totalPrice * 0.2;
+        discountPrice.innerText = discountPrices;
+
         const discountTotal = document.getElementById('grand-price');
-        const discountPrice = totalPrice * 0.2;
-        discountTotal.innerText = discountPrice;
+        discountTotal.innerText = totalPrice - discountPrices;
+
+        getRemoveElement('couponCodeInput');
+        getAddElement('success-box');
+
     }
     else if(couponCode === 'NEW15'){
-        const discountTotals = document.getElementById('grand-price');
+        const discountPrice = document.getElementById('discount-price');
         const discountPrices = totalPrice * 15 / 100;
-        discountTotals.innerText = discountPrices;
+        discountPrice.innerText = discountPrices;
+
+        const discountTotal2 = document.getElementById('grand-price');
+        discountTotal2.innerText = totalPrice - discountPrices;
+
+        getRemoveElement('couponCodeInput');
+        getAddElement('success-box');
     }
     else{
-        applyBtn.setAttribute('disabled', true);
+        // applyBtn.setAttribute('disabled', true);
+        alert('lkjklfdf')
     }
     
     
@@ -105,6 +121,16 @@ function getElementById(elementId){
     const element = parseInt(elementValue);
     return element;
 }
+
+function getAddElement(elementId){
+    const element = document.getElementById(elementId);
+    element.removeAttribute('hidden');
+}
+
+function getRemoveElement(elementId){
+    const element = document.getElementById(elementId);
+    element.classList.add('hidden');
+} 
 
 function addBackgroundColor(elementId){
     const element =  document.getElementById(elementId);

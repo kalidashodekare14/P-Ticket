@@ -291,11 +291,20 @@
                                     <span id="total-price">0</span>
                                 </h1>
                             </div>
+                            <div class="flex justify-between p-2">
+                                <p class="font-semibold">Discount Price</p>
+                                <h1 class="font-semibold">BDT
+                                    <span id="discount-price">0</span>
+                                </h1>
+                            </div>
                             <!-- input type -->
                             <div class="mt-5 bg-white p-3 rounded-lg">
-                                <div class="join lg:ml-3">
+                                <div id="couponCodeInput" class="join lg:ml-3">
                                     <input id="coupon-code" class="input input-bordered join-item lg:w-64" placeholder="Have any copupon?"/>
                                     <button disabled id="apply-btn" class="btn join-item bg-[#1DD100] text-white lg:px-6">Apply</button>
+                                </div>
+                                <div id="success-box" hidden class="bg-emerald-600 p-3 rounded-lg">
+                                    <p class="text-white font-inter">Your Coupon applied Successfully</p>
                                 </div>
                             </div>
                             <!-- Grand total div -->
