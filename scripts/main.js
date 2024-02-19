@@ -8,27 +8,19 @@ for(const btn of allBtn){
    btn.addEventListener('click', function(){
         count += 1;
 
-        const inputNumber = document.getElementById('input-number');
-        const inputs = parseInt(inputNumber.value);
-        
-
-        const submitBtn = document.getElementById('submit-btn');
         const applyBtn = document.getElementById('apply-btn');
         const seatName = btn.innerText;
         const seatPrice = 550;
-
+        
 
         if(count === 4){
 
             applyBtn.removeAttribute('disabled'); 
-            submitBtn.removeAttribute('disabled');  
         }
-        
         else if(count >= 5){
             alert('Only 4 Ticket is Available')
             allBtn.setAttribute('disabled', false);
             
-
         }
         else{
             applyBtn.setAttribute('disabled', true);
@@ -70,9 +62,19 @@ for(const btn of allBtn){
 }
 
 
-document.getElementById('submit-btn').addEventListener('click', function(){
-    console.log('okk')
+document.getElementById('input-number').addEventListener('keyup', function(event){
+    const number = event.target.value;
+    console.log(number);
+    const showBtn = document.getElementById('submit-btn');
+    if(count = 1 && number.length >= 11){
+        showBtn.removeAttribute('disabled')
+    }
+    else{
+        showBtn.addAttribute('disabled', true);
+    }
+    
 })
+
 
 
 const applyBtn = document.getElementById('apply-btn');
