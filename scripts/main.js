@@ -25,11 +25,12 @@ for(const btn of allBtn){
         }
         
         else if(count >= 5){
+            alert('Only 4 Ticket is Available')
             allBtn.setAttribute('disabled', false);
+            
 
         }
         else{
-            console.log('ar beshi hocce');
             applyBtn.setAttribute('disabled', true);
         }
 
@@ -69,15 +70,20 @@ for(const btn of allBtn){
 }
 
 
+document.getElementById('submit-btn').addEventListener('click', function(){
+    console.log('okk')
+})
+
 
 const applyBtn = document.getElementById('apply-btn');
 applyBtn.addEventListener('click', function(){
    
-    const discountPrice = document.getElementById('discount-price');
+
     const couponElement = document.getElementById('coupon-code').value;
-    const couponCode = couponElement.split(" ").join('').toUpperCase();
+    const couponCode = couponElement.split(" ").join(' ').toUpperCase();
+    console.log(couponCode);
     // console.log(couponCode);
-    if(couponCode === 'COUPLE20'){
+    if(couponCode === 'COUPLE 20'){
         const discountPrice = document.getElementById('discount-price');
         const discountPrices = totalPrice * 0.2;
         discountPrice.innerText = discountPrices;
@@ -102,7 +108,7 @@ applyBtn.addEventListener('click', function(){
     }
     else{
         // applyBtn.setAttribute('disabled', true);
-        alert('Please Select Coupon Code')
+        alert('Please enter the correct coupon code.')
     }
     
     
