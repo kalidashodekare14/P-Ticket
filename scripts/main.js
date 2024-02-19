@@ -82,10 +82,10 @@ applyBtn.addEventListener('click', function(){
    
 
     const couponElement = document.getElementById('coupon-code').value;
-    const couponCode = couponElement.split(" ").join(' ').toUpperCase();
+    const couponCode = couponElement.split(" ").join(' ');
     console.log(couponCode);
     // console.log(couponCode);
-    if(couponCode === 'COUPLE 20'){
+    if(couponCode === 'Couple 20'){
         const discountPrice = document.getElementById('discount-price');
         const discountPrices = totalPrice * 0.2;
         discountPrice.innerText = discountPrices;
